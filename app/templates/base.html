@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--标题栏-->
 <head>
     <meta charset="UTF-8">
     {% if title %}
-        <title>{{ title }} - 博客</title>
+        <title>{{ title }} - 微博</title>
     {% else %}
-        <title>博客</title>
+        <title>微博</title>
     {% endif %}
 </head>
 <body>
-    <div>博客：<a href="{{ url_for('hello') }}">首页</a></div>
+    <div>
+        <span>微博</span>
+        <a>搜索框 </a>
+        <a href="{{ url_for('hello') }}">首页</a>
+    </div>
     <hr>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
 </body>
 </html>

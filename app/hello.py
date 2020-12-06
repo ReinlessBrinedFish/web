@@ -3,7 +3,7 @@ from flask import render_template
 
 
 class HelloWorld(View):
-    methods = ['GET']
+    methods = ['GET', 'POST']
 
     def dispatch_request(self):
         user = {'nickname': 'Super.Wong'}
